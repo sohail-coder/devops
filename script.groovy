@@ -6,7 +6,7 @@ def buildJar(){
 def buildImageAndPush(){
     echo "building the docker image"
     withCredentials([usernamePassword(credentialsId:'dockerhub',usernameVariable:'USER',passwordVariable:'PASS')]){
-        sh "docker build sohail233/devops:jma-dockerHub-1.0"
+        sh "docker build -t sohail233/devops:jma-dockerHub-1.0 ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
         sh "docker push sohail233/devops:jma-dockerHub-1.0"
     }
