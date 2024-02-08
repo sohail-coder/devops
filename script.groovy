@@ -6,9 +6,9 @@ def buildJar(){
 def buildImageAndPush(){
     echo "building the docker image"
     withCredentials([usernamePassword(credentialsId:'aws',usernameVariable:'USER',passwordVariable:'PASS')]){
-        sh "docker build -t sohail233/devops:jma-aws-ecr-1.0 ."
+        sh "docker build -t 381492132752.dkr.ecr.us-east-1.amazonaws.com/java-maven-app:latest ."
         sh "echo $PASS | docker login --username AWS --password-stdin 381492132752.dkr.ecr.us-east-1.amazonaws.com"
-        sh "docker push sohail233/devops:jma-aws-ecr-1.0 ."
+        sh "docker push 381492132752.dkr.ecr.us-east-1.amazonaws.com/java-maven-app:latest"
     }
 }
 
