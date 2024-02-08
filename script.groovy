@@ -5,10 +5,10 @@ def buildJar(){
 
 def buildImageAndPush(){
     echo "building the docker image"
-    withCredentials([usernamePassword(credentialsId:'dockerhub',usernameVariable:'USER',passwordVariable:'PASS')]){
-        sh "docker build -t sohail233/devops:jma-dockerHub-1.0 ."
-        sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh "docker push sohail233/devops:jma-dockerHub-1.0"
+    withCredentials([usernamePassword(credentialsId:'aws',usernameVariable:'USER',passwordVariable:'PASS')]){
+        sh "docker build -t sohail233/devops:jma-aws-ecr-1.0 ."
+        sh "echo $PASS | docker login --username AWS --password-stdin 381492132752.dkr.ecr.us-east-1.amazonaws.com"
+        sh "docker push sohail233/devops:jma-aws-ecr-1.0 ."
     }
 }
 
