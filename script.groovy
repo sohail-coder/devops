@@ -7,7 +7,7 @@ def buildJar(){
 
 def buildImageAndPush(){
     echo "building the docker image"
-    withCredentials([usernamePassword(credentialsId:'dockerhub',usernameVariable:'USER',passwordVariable:'PASS')]){
+    withCredentials([usernamePassword(credentialsId:'pat',usernameVariable:'USER',passwordVariable:'PASS')]){
         sh "docker build -t sohail233/devops:latest ."
         sh "echo $PASS | docker login --username $USER --password-stdin"
         sh "docker push sohail233/devops:latest"
