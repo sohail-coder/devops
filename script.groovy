@@ -7,7 +7,7 @@ def buildJar(){
 
 def buildImageAndPush(){
     echo "building the docker image"
-    withCredentials([usernamePassword(credentialsId:'pat',usernameVariable:'USER',passwordVariable:'PASS')]){
+    withCredentials([usernamePassword(credentialsId:'dockerhub',usernameVariable:'USER',passwordVariable:'PASS')]){
         sh "docker build -t sohail233/devops:latest ."
         sh "echo $PASS | docker login --username $USER --password-stdin"
         sh "docker push sohail233/devops:latest"
@@ -18,7 +18,7 @@ def deployApp(){
     echo "deploying application"
 }
 def commitToGit(){
-    withCredentials([usernamePassword(credentialsId:'git',usernameVariable:'USER',passwordVariable:'PASS')]){
+    withCredentials([usernamePassword(credentialsId:'pat',usernameVariable:'USER',passwordVariable:'PASS')]){
         sh 'git config --global user.email "sohail@gmail.com"'
         sh 'git config --global user.name "sohail"'
         sh 'ssh-keyscan -t ed25519 github.com'
