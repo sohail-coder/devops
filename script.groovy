@@ -23,7 +23,7 @@ def commitToGit(){
         sh "git remote set-url origin https://$USER:$PASS@github.com/sohail-coder/devops.git"
         sh 'git add .'
         sh 'git commit -m "ci-skip"'
-        sh 'git push origin HEAD:devOps' 
+        sh 'git push HEAD:devOps' 
     }
 }
 return this
