@@ -19,9 +19,8 @@ def deployApp(){
 }
 def commitToGit(){
     withCredentials([usernamePassword(credentialsId:'NewPat',usernameVariable:'USER',passwordVariable:'PASS')]){
-
+        sh 'echo "pushing......."'
         sh "git remote set-url origin https://$USER:$PASS@github.com/sohail-coder/devops.git"
-        sh ''
         sh 'git add .'
         sh 'git commit -m "testing commit from jenkins"'
         sh 'git push origin HEAD:devOps' 
