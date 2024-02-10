@@ -19,6 +19,8 @@ def deployApp(){
 }
 def commitToGit(){
     withCredentials([usernamePassword(credentialsId:'NewPat',usernameVariable:'USER',passwordVariable:'PASS')]){
+        sh 'git config --global user.name "sohail-jenkins"'
+        sh 'git config --global user.email "sohail-jenkins@gmail.com"'
         sh 'echo "pushing......."'
         sh "git remote set-url origin https://$USER:$PASS@github.com/sohail-coder/devops.git"
         sh 'git add .'
