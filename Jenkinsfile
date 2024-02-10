@@ -15,6 +15,7 @@ pipeline {
         stage('build') {
             steps {
                 script{
+                    echo "inside master branch"
                     echo 'build progress'
                     gv.buildJar()
                 }
