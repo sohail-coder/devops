@@ -1,6 +1,8 @@
 def buildJar(){
     echo "building the jar image"
-    sh "mvn package"
+    sh 'mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit'
+    sh "mvn clean package"
+
 }
 
 def buildImageAndPush(){
@@ -14,6 +16,12 @@ def buildImageAndPush(){
 
 def deployApp(){
     echo "deploying application"
+}
+def commitToGit(){
+    sh "git remote set-url https://${USER}:${PASS}@github.com/sohail-coder/devops.git"
+    sh 'git add .'
+    sh 'git commit -m "testing commit from jenkins"'
+    sh 'git push HEAD:devOps' 
 }
 
 return this

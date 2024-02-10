@@ -37,6 +37,13 @@ pipeline {
                 }
             }
         }
+        stage('commit to git'){
+            steps{
+                script{
+                    gv.commitToGit()
+                }
+            }
+        }
     }
    
 }
