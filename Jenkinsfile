@@ -15,7 +15,7 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    echo "Checking webhook"
+                    echo "Checking webhook 1"
                     echo 'build progress'
                     gv.buildJar()
                 }
