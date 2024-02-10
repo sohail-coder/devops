@@ -21,12 +21,15 @@ def commitToGit(){
     withCredentials([usernamePassword(credentialsId:'pat',usernameVariable:'USER',passwordVariable:'PASS')]){
         sh 'git config --global user.email "sohail@gmail.com"'
         sh 'git config --global user.name "sohail"'
-        sh 'ssh-keyscan -t ed25519 github.com'
+        // sh 'ssh-keyscan -t ed25519 github.com'
         sh "git remote set-url origin https://$USER:$PASS@github.com/sohail-coder/devops.git"
+        sh ''
         sh 'git add .'
         sh 'git commit -m "testing commit from jenkins"'
         sh 'git push origin HEAD:devOps' 
     }
 }
 // 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
+// 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
+// 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
 return this
