@@ -2,6 +2,7 @@ def buildJar(){
     echo "building the jar image"
     sh 'mvn clean build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit'
     sh "mvn clean package"
+    
 }
 
 def buildImageAndPush(){
