@@ -28,7 +28,6 @@ def commitToGit(){
         sh 'git push origin HEAD:devOps' 
     }
 }
-// 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
 // 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
 // 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
 return this
