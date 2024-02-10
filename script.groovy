@@ -24,7 +24,7 @@ def commitToGit(){
         sh 'git add .'
         sh 'git commit -m "ci-skip"'
         sh 'git push origin HEAD:devOps' 
-        sh 'echo commit 1'
+        sh 'echo commit 2'
     }
 }
 return this
