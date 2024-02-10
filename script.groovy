@@ -18,7 +18,7 @@ def deployApp(){
     echo "deploying application"
 }
 def commitToGit(){
-    withCredentials([usernamePassword(credentialsId:'pat',usernameVariable:'USER',passwordVariable:'PASS')]){
+    withCredentials([usernamePassword(credentialsId:'NewPat',usernameVariable:'USER',passwordVariable:'PASS')]){
 
         sh "git remote set-url origin https://$USER:$PASS@github.com/sohail-coder/devops.git"
         sh ''
